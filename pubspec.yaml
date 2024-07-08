@@ -74,6 +74,27 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: UzumBold
+      fonts:
+        - asset: assets/fonts/uzum_bold.ttf
+
+    - family: ExtraBold
+      fonts:
+        - asset: assets/fonts/uzum_extrabold.ttf
+
+    - family: SemiBold
+      fonts:
+        - asset: assets/fonts/uzum_semi_bold.ttf
+
+    - family: Medium
+      fonts:
+        - asset: assets/fonts/uzum_medium.ttf
+
+    - family: NumberMedium
+      fonts:
+        - asset: assets/fonts/roboto_medium_numbers.ttf
+
   # fonts:
   #   - family: Schyler
   #     fonts:
