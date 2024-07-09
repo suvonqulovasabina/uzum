@@ -39,6 +39,10 @@ dependencies:
     sdk: flutter
   intl: ^0.19.0
   build_runner: ^2.4.11
+  flutter_svg: ^2.0.10+1
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.1
+
 
 dev_dependencies:
   flutter_test:
@@ -69,10 +73,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/image/icons/
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/images/
+#  assets:
+#    - assets/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -104,9 +111,9 @@ flutter:
       fonts:
         - asset: assets/fonts/uzum_medium.ttf
 
-    - family: NumberMedium
-      fonts:
-        - asset: assets/fonts/uzum_medium.ttf
+#    - family: NumberMedium
+#      fonts:
+#        - asset: assets/fonts/roboto_medium_numbers.ttf
 
   # fonts:
   #   - family: Schyler
