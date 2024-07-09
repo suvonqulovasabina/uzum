@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uzum/ui/theme/components.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
@@ -19,27 +18,25 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
     return Padding(
       padding: const EdgeInsets.only(top: 40),
       child: TextButton(
-        onPressed: () {
-          setState(() {
-            if (enteredPin.length < 4) {
-              enteredPin += number.toString();
-              if (enteredPin.length == 4) {
-                _checkPin();
+          onPressed: () {
+            setState(() {
+              if (enteredPin.length < 4) {
+                enteredPin += number.toString();
+                if (enteredPin.length == 4) {
+                  _checkPin();
+                }
               }
-            }
-          });
-        },
-        child: BoldText(
-          text: number.toString(),
-          fontSize: 24,
-        )
-      ),
+            });
+          },
+          child: BoldText(
+            text: number.toString(),
+            fontSize: 24,
+          )),
     );
   }
 
   void _checkPin() {
     if (enteredPin == originalPassword) {
-      // Pin is correct, you can handle it as needed
     } else {
       setState(() {
         isError = true;
@@ -62,12 +59,13 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
           children: [
             Spacer(),
             const Center(
-              child: BoldText(
-                text: "Hello!",
-                fontSize: 24,
-              )
+                child: BoldText(
+              text: "Hello!",
+              fontSize: 24,
+            )),
+            const SizedBox(
+              height: 50,
             ),
-            const SizedBox(height: 50,),
             // enter code area
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -81,13 +79,15 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                     color: isError
                         ? Colors.red
                         : index < enteredPin.length
-                        ? LightColors.primary
-                        : Colors.grey.withOpacity(.5),
+                            ? LightColors.primary
+                            : Colors.grey.withOpacity(.5),
                   ),
                 );
               }),
             ),
-            const SizedBox(height: 85,),
+            const SizedBox(
+              height: 85,
+            ),
             // digits area
             for (var i = 0; i < 3; ++i)
               Padding(
@@ -96,7 +96,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(
                     3,
-                        (index) => numberButton(1 + 3 * i + index),
+                    (index) => numberButton(1 + 3 * i + index),
                   ).toList(),
                 ),
               ),
@@ -130,7 +130,9 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
               ),
             ),
 
-            const SizedBox(height: 55,)
+            const SizedBox(
+              height: 55,
+            )
           ],
         ),
       ),

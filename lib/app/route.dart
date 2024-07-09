@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:uzum/ui/bottom_navigation/bottom_navigation.dart';
 import 'package:uzum/ui/otp/otp.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
@@ -10,6 +11,7 @@ class RouteHelper {
   static const String _initR = '/$splash';
 
   static const String pin = 'pin';
+  static const String bottomNavigation='bottomNavigation';
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';
@@ -21,6 +23,11 @@ class RouteHelper {
         path: '/$splash',
         name: splash,
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: '/$bottomNavigation',
+        name: bottomNavigation,
+        builder: (context, state) => const BottomNavigation(),
       ),
       GoRoute(
         path: '/$pin',
