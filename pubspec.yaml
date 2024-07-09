@@ -101,7 +101,7 @@ flutter:
 
     - family: NumberMedium
       fonts:
-        - asset: assets/fonts/roboto_medium_numbers.ttf
+        - asset: assets/fonts/uzum_medium.ttf
 
   # fonts:
   #   - family: Schyler

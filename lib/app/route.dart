@@ -17,14 +17,17 @@ class RouteHelper {
     routes: [
       GoRoute(
         path: splash,
+        name: 'splash',
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
         path: pin,
+        name: 'pin',
         builder: (context, state) => const PinCodeWidget(),
       ),
       GoRoute(
         path: register,
+        name: 'register',
         builder: (context, state) => const Register(),
       ),
     ],

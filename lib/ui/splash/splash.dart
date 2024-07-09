@@ -12,12 +12,17 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () {
-      context.pushReplacementNamed(RouteHelper.register);
+      context.pushReplacement(RouteHelper.register);
     });
 
     return SafeArea(
-      child: Center(
-        child: Image.asset(Assets.uzumIcon, height: 56, width: 56),
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.white,
+        child: Center(
+          child: Image.asset(Assets.uzumLogo, height: 200, width: 200),
+        ),
       ),
     );
   }
