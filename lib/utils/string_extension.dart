@@ -10,7 +10,7 @@ extension StringExtension on String {
   }
 
   String toPhoneNumber() {
-    if (length != 13 || startsWith('+998')) return this;
+    if (length != 13 || !startsWith('+998')) return this;
 
     final ls = split('').toList();
     final spaceIndexes = [4, 6 + 1, 9 + 2, 11 + 3];
