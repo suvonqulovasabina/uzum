@@ -8,4 +8,15 @@ extension StringExtension on String {
 
     return formatted;
   }
+
+  String toPhoneNumber() {
+    if (length != 13 || startsWith('+998')) return this;
+
+    final ls = split('').toList();
+    final spaceIndexes = [4, 6 + 1, 9 + 2, 11 + 3];
+    for (final index in spaceIndexes) {
+      ls.insert(index, ' ');
+    }
+    return ls.join();
+  }
 }

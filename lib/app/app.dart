@@ -16,6 +16,8 @@ class UzumBankApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        // TODO uzum bold
+        fontFamily: "UzumBold",
       ),
       supportedLocales: L10n.all,
       locale: L10n.all[0],

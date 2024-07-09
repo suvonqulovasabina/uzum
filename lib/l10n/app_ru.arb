@@ -1,3 +1,4 @@
 {
-  "test": "это тест"
+  "test": "это тест",
+  "sms_is_not_responding": "SMS is not responding"
 }
