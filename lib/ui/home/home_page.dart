@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
                 getCardInfoItem(),
                 SizedBox(height: 25),
                 Container(
-                  height: 600,
+                  height: 700,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xFFF5F6F8),
@@ -94,9 +94,12 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(height: 15,),
                         getMyFast(),
+                        SizedBox(height: 15,),
+
                         getSlider(),
-                        SizedBox(height: 5),
+                        SizedBox(height: 15),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,6 +122,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(height: 15,),
                         SizedBox(
                           height: 100,
                           child: ListView.separated(
@@ -136,9 +140,12 @@ class HomePage extends StatelessWidget {
                             itemCount: 10,
                           ),
                         ),
-                        
+                        SizedBox(height: 15,),
                         getPhonePayment(),
-                        Text("data"),
+                        SizedBox(height: 15,),
+                        Align(
+                            alignment: Alignment.topLeft,
+                            child: Text("Saved payment")),
                         Expanded(child: Container()),
                       ],
                     ),
