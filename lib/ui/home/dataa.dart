@@ -1,3 +1,7 @@
+
+import 'package:flutter/material.dart';
+import 'package:uzum/ui/theme/light_colors.dart';
+
 List<String> getListBanner (){
   return [
 
@@ -20,4 +24,22 @@ List<String> getListBanner (){
     "https://images.uzum.uz/cq14vogsarnfdo9a0pgg/main_page_banner.jpg",
 
   ];
+}
+List<HomeFastModel> getFastList (){
+  return [
+  HomeFastModel(text: "My number", icon: Icons.phone_iphone,color: LightColors.primary),
+  HomeFastModel(text: "My Home", icon: Icons.home_outlined,),
+  HomeFastModel(text: "HUMO Pay", icon: Icons.paypal,),
+  HomeFastModel(text: "Exchange", icon: Icons.currency_exchange,),
+  HomeFastModel(text: "Deposit", icon: Icons.money_outlined,),
+  HomeFastModel(text: "Loans", icon: Icons.credit_card,),
+  HomeFastModel(text: "Wallets", icon: Icons.wallet_sharp,),
+];}
+
+
+class HomeFastModel{
+  String text;
+  IconData icon;
+  Color? color;
+  HomeFastModel({required this.text,required this.icon,this.color});
 }

@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uzum/cons/app_icons.dart';
-import 'package:uzum/ui/home/data_banner.dart';
+import 'package:uzum/ui/home/dataa.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 import 'package:uzum/utils/string_extension.dart';
 
@@ -10,8 +9,8 @@ import '../../cons/cons.dart';
 
 class HomePage extends StatelessWidget {
   final TextEditingController _phoneController = TextEditingController();
-   HomePage({super.key});
 
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,8 @@ class HomePage extends StatelessWidget {
                 getSearchBox(),
                 SizedBox(height: 15),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -62,102 +62,206 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 25),
                 getCardInfoItem(),
                 SizedBox(height: 25),
-                Container(
-                  height: 700,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF5F6F8),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Fast access",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_sharp,
-                              size: 20,
-                              color: Colors.grey,
-                            ),
-                          ],
+                Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      height: 900,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF5F6F8),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
                         ),
-                        SizedBox(height: 15,),
-                        getMyFast(),
-                        SizedBox(height: 15,),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 15,),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      color: Colors.white),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
 
-                        getSlider(),
-                        SizedBox(height: 15),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Local payments",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                                      RichText(
+                                          text: TextSpan(
+                                              text: "Cashback uo to",
+                                              style: TextStyle(color: Colors.black),
+                                              children: [
+                                            TextSpan(
+                                              text: " 20%",
+                                              style: TextStyle(
+                                                color: Colors.green,
+                                              ),
+                                            )
+                                          ])),
+                                      SizedBox(height: 20,),
+                                      RichText(text: TextSpan(text: 1.toString(),style: TextStyle(color: Colors.black,fontSize: 16,),children: [TextSpan(text: "UZS")])),
+                                      Text("Earned",style: TextStyle(color: Colors.grey,),)
+                                      
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 15,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Fast access",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios_sharp,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+
+                            getMyFast(),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            getSlider(),
+                            SizedBox(height: 15),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Local payments",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Text(
+                                  "Enable",
+                                  style: TextStyle(
+                                    color: LightColors.primary,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            SizedBox(
+                              height: 100,
+                              child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (c, i) {
+                                  return getLocalPayments(
+                                    name: "Biznes\nFabrika",
+                                    url: biznesFabrika,
+                                    sale: "5%",
+                                  );
+                                },
+                                separatorBuilder: (_, __) {
+                                  return SizedBox(width: 15);
+                                },
+                                itemCount: 10,
                               ),
                             ),
-                            Text(
-                              "Enable",
-                              style: TextStyle(
-                                color: LightColors.primary,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            SizedBox(
+                              height: 15,
                             ),
+                            getPhonePayment(),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Saved payments",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios_sharp,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                            getFast(
+                                Icons.add_circle_outline, Colors.grey, "add"),
+                            Expanded(child: Container()),
                           ],
                         ),
-                        SizedBox(height: 15,),
-                        SizedBox(
-                          height: 100,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (c, i) {
-                              return getLocalPayments(
-                                name: "Biznes\nFabrika",
-                                url: biznesFabrika,
-                                sale: "5%",
-                              );
-                            },
-                            separatorBuilder: (_, __) {
-                              return SizedBox(width: 15);
-                            },
-                            itemCount: 10,
-                          ),
-                        ),
-                        SizedBox(height: 15,),
-                        getPhonePayment(),
-                        SizedBox(height: 15,),
-                        Align(
-                            alignment: Alignment.topLeft,
-                            child: Text("Saved payment")),
-                        Expanded(child: Container()),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
+                    getRefresh(),
+                  ],
+                )
               ],
             ),
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text(
+          "uzumpay",
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+        icon: Icon(
+          Icons.qr_code_scanner_outlined,
+          size: 24,
+          color: Colors.white,
+        ),
+        backgroundColor: Color(0xFF6F00FE),
+        onPressed: () {
+          // Add your Uzumpay functionality here
+        },
+      ),
     );
   }
+}
+
+Widget getRefresh() {
+  return Positioned(
+      top: -13,
+      child: Container(
+        height: 50,
+        width: 50,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: LightColors.primary,
+            ),
+            child: Icon(
+              Icons.refresh,
+              color: Colors.white,
+              size: 18,
+            )),
+      ));
 }
 
 Widget getPhonePayment() {
@@ -168,47 +272,52 @@ Widget getPhonePayment() {
       color: Colors.white,
     ),
     child: Padding(
-      padding: const EdgeInsets.only(top: 10,left: 10,),
+      padding: const EdgeInsets.only(
+        top: 10,
+        left: 10,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Mobile Number",style: TextStyle(color: Colors.black54,fontSize:16 ),),
-          Row(children: [
-            Text("+998",style: TextStyle(color: Colors.black,fontSize: 18),),
-            Container(
-              height: 60,
-              width: 280,
-              child: TextField(
+          Text(
+            "Mobile Number",
+            style: TextStyle(color: Colors.black54, fontSize: 16),
+          ),
+          Row(
+            children: [
+              Text(
+                "+998",
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              Container(
+                height: 60,
+                width: 280,
+                child: TextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  // controller: _phoneController,
 
-                keyboardType: TextInputType.visiblePassword,
-                // controller: _phoneController,
-
-                decoration: InputDecoration(
-                  hintText: "(00) 000 - 00 - 00",
-                  hintStyle: TextStyle(color: Color(
-                      0xFF9DA3A7)),
-                  border: OutlineInputBorder(
-
-
-                      borderRadius: BorderRadius.circular(Cons.textBorderRadius),
-                      borderSide: BorderSide.none),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      ;
-                    },
-                    icon:
-                    Icon(
-                      Icons.account_circle_sharp,
-                      size: IconsSize.IconSearchSize.toDouble(),
-                      color: Color(
-                          0xFF9DA3A7),
+                  decoration: InputDecoration(
+                    hintText: "(00) 000 - 00 - 00",
+                    hintStyle: TextStyle(color: Color(0xFF9DA3A7)),
+                    border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(Cons.textBorderRadius),
+                        borderSide: BorderSide.none),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        ;
+                      },
+                      icon: Icon(
+                        Icons.account_circle_sharp,
+                        size: IconsSize.IconSearchSize.toDouble(),
+                        color: Color(0xFF9DA3A7),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-
-          ],)
+            ],
+          )
         ],
       ),
     ),
@@ -264,7 +373,8 @@ getSearchBox() {
   );
 }
 
-Widget getLocalPayments({required String name, required String url, String? sale}) {
+Widget getLocalPayments(
+    {required String name, required String url, String? sale}) {
   return Stack(
     children: [
       Container(
@@ -413,16 +523,17 @@ Widget getMyFast() {
     child: ListView.separated(
       scrollDirection: Axis.horizontal,
       itemBuilder: (c, i) {
+        var data = getFastList()[i];
         return getFast(
-          Icons.phone_iphone,
-          i == 0 ? LightColors.primary : Colors.black,
-          "My number",
+          data.icon,
+          data.color ?? Colors.black,
+          data.text,
         );
       },
       separatorBuilder: (c, i) {
         return SizedBox(width: 10);
       },
-      itemCount: 10,
+      itemCount: getFastList().length,
     ),
   );
 }
