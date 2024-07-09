@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uzum/ui/home/home_page.dart';
 import 'package:uzum/ui/register/register.dart';
 
 class UzumBankApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class UzumBankApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Register(),
+      home: const HomePage(),
     );
   }
 }
