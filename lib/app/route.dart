@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:uzum/ui/menu/page/menu.dart';
 import 'package:uzum/ui/otp/otp.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
@@ -7,12 +8,13 @@ import 'package:uzum/ui/splash/splash.dart';
 class RouteHelper {
   RouteHelper._();
 
-  static const String _initR = '/$splash';
+  static const String _initR = '/$menuItem';
 
   static const String pin = 'pin';
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';
+  static const String menuItem = 'menuItem';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -36,8 +38,13 @@ class RouteHelper {
         path: "/$otp",
         name: otp,
         builder: (context, state) => OtpPage(
-          phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
+          phoneNumber: state.uri.queryParameters['id1'] ?? '+998901234567',
         ),
+      ),
+      GoRoute(
+        path: "/$menuItem",
+        name: menuItem,
+        builder: (context, state) => const MenuPage(),
       ),
     ],
   );
