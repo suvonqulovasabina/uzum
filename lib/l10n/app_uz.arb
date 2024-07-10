@@ -1,5 +1,8 @@
 {
   "test": "bu test",
-  "sms_is_not_responding": "SMS is not responding"
-
+  "sms_is_not_coming": "Sms kelmadi",
+  "customer_support": "Qo'llab-quvvatlash",
+  "online": "Onlayn",
+  "support_default": "Assalomu alaykum! Uzum Bank qo'llab-quvvatlash markazi. Bizga istalgan xabarni yozing, biz javob berishdan mamnun bo'lamiz.",
+  "write_a_message": "Xabar yozing . . ."
 }

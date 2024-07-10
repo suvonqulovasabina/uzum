@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:uzum/ui/theme/components.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 import 'package:uzum/utils/constants/assets.dart';
 import 'package:uzum/utils/string_extension.dart';
@@ -16,6 +17,7 @@ class OtpPage extends StatefulWidget {
 
 class OtpPageState extends State<OtpPage> {
   final List<TextEditingController> _controllers = List.generate(5, (_) => TextEditingController());
+  final _focus = FocusNode();
 
   @override
   void dispose() {
@@ -31,16 +33,10 @@ class OtpPageState extends State<OtpPage> {
       appBar: AppBar(
         leading: const Icon(Icons.arrow_back),
         actions: [
-          TextButton(
-            onPressed: () {
-              // TODO on Click SMS IS NOT RESPONDING
-            },
-            child: Text(
-              AppLocalizations.of(context)!.sms_is_not_coming,
-              style: const TextStyle(
-                color: LightColors.primary,
-              ),
-            ),
+          BoldText(
+            text: AppLocalizations.of(context)!.sms_is_not_coming,
+            color: LightColors.primary,
+            onClick: () {},
           ),
           const SizedBox(width: 8),
         ],
@@ -50,9 +46,9 @@ class OtpPageState extends State<OtpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('SMS was sent', style: TextStyle(fontSize: 24)),
-            Text(widget.phoneNumber.toPhoneNumber(), style: const TextStyle(fontSize: 24)),
-            const SizedBox(height: 12),
+            const BoldText(text: 'SMS was sent', fontSize: 24, height: 1.5),
+            BoldText(text: widget.phoneNumber.toPhoneNumber(), fontSize: 24, height: 1.5),
+            const SizedBox(height: 24),
             Form(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -62,14 +58,21 @@ class OtpPageState extends State<OtpPage> {
                       borderRadius: BorderRadius.circular(4),
                       color: Colors.grey.shade200,
                     ),
-                    margin: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.all(4),
                     height: 56,
                     width: 42,
                     alignment: Alignment.center,
                     child: TextFormField(
+                      autofocus: index == 0,
+                      focusNode: index == 4 ? _focus : null,
                       controller: _controllers[index],
                       onChanged: (String? value) {
-                        if (value != null && value.length == 1 && index < 4) {
+                        if (value != null && value.length == 1 && index == 4) {
+                          String otp = _controllers.map((controller) => controller.text).join();
+                          _focus.unfocus();
+                          if (otp.length == 5) print('otp: $otp');
+                          // TODO Send to API
+                        } else if (value != null && value.length == 1 && index < 4) {
                           FocusScope.of(context).nextFocus();
                         } else if (value == null || value.isEmpty && index > 0) {
                           FocusScope.of(context).previousFocus();
@@ -93,7 +96,7 @@ class OtpPageState extends State<OtpPage> {
                 }),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 36),
             Text(
               'You can send\n it again after 49 sec',
               style: TextStyle(
@@ -104,20 +107,6 @@ class OtpPageState extends State<OtpPage> {
               textAlign: TextAlign.center,
             ),
             const Spacer(),
-            GestureDetector(
-              onTap: () {
-                String otp = _controllers.map((controller) => controller.text).join();
-                if (otp.length == 5) print('otp: $otp');
-                // TODO Send to API
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                margin: const EdgeInsets.all(10),
-                width: double.infinity,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: LightColors.primary),
-                child: const Center(child: Text("Verify", style: TextStyle(color: Colors.white, fontSize: 18))),
-              ),
-            )
           ],
         ),
       ),
