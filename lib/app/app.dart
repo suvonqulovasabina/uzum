@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uzum/ui/home/add_cart_sms_otp/add_cart_sms_otp.dart';
 import 'package:uzum/ui/home/home_page.dart';
 import 'package:uzum/ui/register/register.dart';
 
@@ -14,7 +15,7 @@ class UzumBankApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  HomePage(),
+      home:  AddCartSmsOtp(),
     );
   }
 }
