@@ -1,10 +1,15 @@
 {
   "test": "bu test",
   "sms_is_not_responding": "SMS is not responding",
-  "continue":"Keyingisi"
+  "continue":"Keyingisi",
   "sms_is_not_coming": "SMS is not responding",
   "payment_screen_title": "To'lov",
   "saved_payments": "Saqlangan to'lovlar",
-  "all": "Hammasi",
-  "local_payments": "Mahalliy to'lovlar"
+  "all":"Hammasi",
+  "local_payments":"Mahalliy to'lovlar",
+  "my_home": "Mening uyim",
+  "add": "Qo'shish",
+  "payment_by_category" : "Kategoriya bo'yicha to'lov"
+
+
 }

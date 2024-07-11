@@ -1,11 +1,14 @@
 {
   "test": "this is test",
-  "sms_is_not_coming": "SMS is not coming"
-  "keyingisi":"continue"
+  "sms_is_not_coming": "SMS is not coming",
+  "keyingisi":"continue",
   "sms_is_not_coming": "SMS is not coming",
   "payment_screen_title":"Payment",
   "saved_payments": "Saved payments",
   "all":"All",
-  "local_payments":"Local payments"
-  "card_number":"Card number"
+  "local_payments":"Local payments",
+  "card_number":"Card number",
+  "my_home": "My Home",
+  "add": "Add",
+  "payment_by_category" : "Payment by category"
 }

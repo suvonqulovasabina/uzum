@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uzum/ui/payment/payment_screens.dart';
 
 import '../home/home_page.dart';
 
@@ -20,7 +21,7 @@ class _BottomState extends State<BottomNavigation> {
   List<Widget> bottom = [
      HomePage(),
     MenuPage(),
-    const Payment(),
+     PaymentScreens(),
     const SupportScreen(),
      HomePage()
   ];

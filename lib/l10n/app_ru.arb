@@ -1,11 +1,16 @@
 {
   "test": "это тест",
   "sms_is_not_responding": "SMS is not responding",
-  "continue":"Следующий"
+  "continue":"Следующий",
   "sms_is_not_coming": "SMS is not responding",
   "payment_screen_title": "Оплата",
   "saved_payments": "Сохраненные платежи",
   "all":"Все",
-  "local_payments":"Местные платежи"
-   "card_number":"Card number"
+  "local_payments":"Местные платежи",
+   "card_number":"Card number",
+  "my_home": "Мой дом",
+  "add": "Добавить",
+  "payment_by_category": "Оплата по категориям"
+
+
 }
