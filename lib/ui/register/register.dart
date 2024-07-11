@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uzum/ui/pin/pin_code_widget.dart';
 
 import '../../cons/cons.dart';
 
@@ -43,7 +44,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: 15,
             ),
             TextField(
               keyboardType: TextInputType.name,
@@ -58,7 +59,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: 15,
             ),
             TextField(
               keyboardType: TextInputType.visiblePassword,
@@ -83,7 +84,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             SizedBox(
-              height: 5,
+              height: 15,
             ),
             TextField(
               keyboardType: TextInputType.visiblePassword,
@@ -108,7 +109,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             SizedBox(
-              height: 12,
+              height: 24,
             ),
             Container(
               padding: EdgeInsets.all(10),
@@ -118,7 +119,9 @@ class _RegisterState extends State<Register> {
                   color: Color(0xFF6F00FD)),
               child: InkWell(
                 onTap: (){
-
+                  Navigator.push((context), MaterialPageRoute(builder: (context)=>
+                  const PinCodeWidget()
+                  ));
                 },
                 child: Center(
                     child: Text(
