@@ -7,5 +7,10 @@
   "saved_payments": "Сохраненные платежи",
   "all":"Все",
   "local_payments":"Местные платежи",
-   "card_number":"Card number"
+   "card_number":"Card number",
+  "customer_support": "Customer Support RU",
+  "online": "Онлайн",
+  "support_default": "Ру: Hello! This is a support service of Uzum Bank. Write us any questions and we will be happy to help you.",
+  "write_a_message": "Write a message . . ."
+
 }

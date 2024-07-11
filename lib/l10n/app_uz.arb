@@ -6,6 +6,9 @@
   "payment_screen_title": "To'lov",
   "saved_payments": "Saqlangan to'lovlar",
   "all":"Hammasi",
-  "local_payments":"Mahalliy to'lovlar"
-
+  "local_payments":"Mahalliy to'lovlar",
+  "customer_support": "Qo'llab-quvvatlash",
+  "online": "Onlayn",
+  "support_default": "Assalomu alaykum! Uzum Bank qo'llab-quvvatlash markazi. Bizga istalgan xabarni yozing, biz javob berishdan mamnun bo'lamiz.",
+  "write_a_message": "Xabar yozing . . ."
 }

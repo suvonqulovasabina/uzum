@@ -25,6 +25,7 @@ class SplashScreenState extends State<SplashScreen> {
       context.pushReplacement('/main');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

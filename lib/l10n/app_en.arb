@@ -1,7 +1,11 @@
 {
   "test": "this is test",
-  "keyingisi": "continue",
   "sms_is_not_coming": "SMS is not coming",
+  "customer_support": "Customer Support",
+  "online": "Online",
+  "support_default": "Hello! This is a support service of Uzum Bank. Write us any questions and we will be happy to help you.",
+  "write_a_message": "Write a message . . ."
+  "keyingisi": "continue",
   "payment_screen_title": "Payment",
   "saved_payments": "Saved payments",
   "all": "All",
