@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
+            const Center(
                 child: Text(
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
 
 
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             TextField(
               keyboardType: TextInputType.phone,
               controller: _phoneController,
@@ -48,11 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(Cons.textBorderRadius),
                     borderSide: BorderSide.none),
-                fillColor: Color(0xFFF3F2F5),
+                fillColor: const Color(0xFFF3F2F5),
                 filled: true,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             TextField(
@@ -67,30 +67,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 filled: true,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: Color(0xFF6F00FD)),
+                  color: const Color(0xFF6F00FD)),
               child: InkWell(
                 onTap: (){
                   Navigator.push((context), MaterialPageRoute(builder: (context)=>
                  const Register()
                   ));
                 },
-                child: Center(
-                    child: const Text(
+                child: const Center(
+                    child: Text(
                       "Continue",
                       style: TextStyle(color: Colors.white,fontSize: 18),
                     )),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text("By continuing.I agree to the termos end conditions the processing of personal data ",style:
               TextStyle(color: Colors.grey,fontSize:
               12,fontWeight: FontWeight.bold),

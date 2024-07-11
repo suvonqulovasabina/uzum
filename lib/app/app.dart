@@ -9,12 +9,12 @@ class UzumBankApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: RouteHelper.router,
       debugShowCheckedModeBanner: false,
-      title: 'Uzum Bank',
+
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.
+        fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        // TODO uzum bold
-        fontFamily: "UzumBold",
+
       ),
     );
   }

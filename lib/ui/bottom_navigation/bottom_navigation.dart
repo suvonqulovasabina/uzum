@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../main/main_screen.dart';
-import '../menu/menu_screen.dart';
+import '../home/home_page.dart';
+
+import '../menu/menu.dart';
 import '../payment/payment.dart';
 import '../support/support_screen.dart';
 import '../transfers/transfers.dart';
@@ -17,11 +18,11 @@ class _BottomState extends State<BottomNavigation> {
   int _selectedIndex = 0;
 
   List<Widget> bottom = [
-    const MainScreen(),
-    const Transfers(),
+     HomePage(),
+    MenuPage(),
     const Payment(),
     const SupportScreen(),
-    const MenuScreen()
+     HomePage()
   ];
 
   void _onItemTapped(int index) {
@@ -77,7 +78,7 @@ class _BottomState extends State<BottomNavigation> {
     Widget iconWidget = Icon(
       icon,
       size: 32,
-      color: _selectedIndex == index ? Colors.black : Colors.grey,
+      color: _selectedIndex == index ? Colors.deepPurple : Colors.grey,
     );
 
     return GestureDetector(
@@ -92,7 +93,7 @@ class _BottomState extends State<BottomNavigation> {
           Text(
             label,
             style: TextStyle(
-              color: _selectedIndex == index ? Colors.black : Colors.grey,
+              color: _selectedIndex == index ? Colors.deepPurple : Colors.grey,
             ),
           ),
         ],
