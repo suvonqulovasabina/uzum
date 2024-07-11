@@ -22,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   void _navigateToNextScreen() {
     if (mounted) {
-      context.pushReplacementNamed(RouteHelper.bottomNavigation);
+      context.pushReplacementNamed(RouteHelper.addCard);
     }
   }
   @override
