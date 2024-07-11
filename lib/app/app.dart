@@ -9,7 +9,6 @@ class UzumBankApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: RouteHelper.router,
       debugShowCheckedModeBanner: false,
-
       theme: ThemeData(
         colorScheme: ColorScheme.
         fromSeed(seedColor: Colors.deepPurple),

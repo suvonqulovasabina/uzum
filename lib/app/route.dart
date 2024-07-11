@@ -5,10 +5,13 @@ import 'package:uzum/ui/add_card/add_card/add_card.dart';
 import 'package:uzum/ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
 import 'package:uzum/ui/bottom_navigation/bottom_navigation.dart';
 import 'package:uzum/ui/main/main_screen.dart';
+import 'package:uzum/ui/menu/menu.dart';
 import 'package:uzum/ui/otp/otp.dart';
+import 'package:uzum/ui/payment/payment_screens.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
 import 'package:uzum/ui/splash/splash.dart';
+import 'package:uzum/ui/support/support_screen.dart';
 import 'package:uzum/ui/transfers/transfers.dart';
 
 class RouteHelper {
@@ -25,7 +28,6 @@ class RouteHelper {
 
   static const String pin = 'pin';
   static const String bottomNavigation = 'bottomNavigation';
-  static const String addCard = 'addCard';
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';
@@ -36,105 +38,95 @@ class RouteHelper {
     navigatorKey: _rootNavigatorKey,
     routes: [
       StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) {
-          return BlocProvider(
-            create: (context) => BottomNavigationBloc(),
-            child: BottomNavigation(navigationShell: navigationShell),
-          );
-        },
-        branches: [
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorMain,
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/main',
-                name: 'Main',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const MainScreen();
-                },
-                routes: [
-                  // bu yerda main screen dan add card va boshqa screenlarga o'tish uchun yoziladi
-                  // https://github.com/Mirxomitov/bottom_navigation_with_go_router_demo/blob/master/lib/navigation/app_navigator.dart
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorTransfers,
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/transfers',
-                name: 'Transfers',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const Transfers();
-                },
-                routes: [
-                  // child routes see exmaple:
-                  // https://github.com/Mirxomitov/bottom_navigation_with_go_router_demo/blob/master/lib/navigation/app_navigator.dart
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorPayment,
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/payment',
-                name: 'Payment',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const MainScreen();
-                },
-                routes: [
-                  // bu yerda main screen dan add card va boshqa screenlarga o'tish uchun yoziladi
-                  // https://github.com/Mirxomitov/bottom_navigation_with_go_router_demo/blob/master/lib/navigation/app_navigator.dart
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorSupport,
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/support',
-                name: 'Support',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const MainScreen();
-                },
-                routes: [
-                  // bu yerda main screen dan add card va boshqa screenlarga o'tish uchun yoziladi
-                  // https://github.com/Mirxomitov/bottom_navigation_with_go_router_demo/blob/master/lib/navigation/app_navigator.dart
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorMenu,
-            routes: <RouteBase>[
-              GoRoute(
-                path: '/menu',
-                name: 'Menu',
-                builder: (BuildContext context, GoRouterState state) {
-                  return const MainScreen();
-                },
-                routes: [
-                  // bu yerda main screen dan add card va boshqa screenlarga o'tish uchun yoziladi
-                  // https://github.com/Mirxomitov/bottom_navigation_with_go_router_demo/blob/master/lib/navigation/app_navigator.dart
-                ],
-              ),
-            ],
-          ),
-        ]
-      ),
-
+          builder: (context, state, navigationShell) {
+            return BlocProvider(
+              create: (context) => BottomNavigationBloc(),
+              child: BottomNavigation(navigationShell: navigationShell),
+            );
+          },
+          branches: [
+            StatefulShellBranch(
+              navigatorKey: _shellNavigatorMain,
+              routes: <RouteBase>[
+                GoRoute(
+                  path: '/main',
+                  name: 'Main',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const MainScreen();
+                  },
+                  routes: [
+                    GoRoute(
+                      path: 'addCard',
+                      name: 'addCard',
+                      pageBuilder: (BuildContext context, GoRouterState state) {
+                        return CustomTransitionPage<void>(
+                          key: state.pageKey,
+                          child: const AddCard(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            StatefulShellBranch(
+              navigatorKey: _shellNavigatorTransfers,
+              routes: <RouteBase>[
+                GoRoute(
+                  path: '/transfers',
+                  name: 'Transfers',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const Transfers();
+                  },
+                  routes: [],
+                ),
+              ],
+            ),
+            StatefulShellBranch(
+              navigatorKey: _shellNavigatorPayment,
+              routes: <RouteBase>[
+                GoRoute(
+                  path: '/payment',
+                  name: 'Payment',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const PaymentScreens();
+                  },
+                  routes: [],
+                ),
+              ],
+            ),
+            StatefulShellBranch(
+              navigatorKey: _shellNavigatorSupport,
+              routes: <RouteBase>[
+                GoRoute(
+                  path: '/support',
+                  name: 'Support',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const SupportScreen();
+                  },
+                  routes: [],
+                ),
+              ],
+            ),
+            StatefulShellBranch(
+              navigatorKey: _shellNavigatorMenu,
+              routes: <RouteBase>[
+                GoRoute(
+                  path: '/menu',
+                  name: 'Menu',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const MenuPage();
+                  },
+                  routes: [],
+                ),
+              ],
+            ),
+          ]),
       GoRoute(
         path: '/$splash',
         name: splash,
         builder: (context, state) => const SplashScreen(),
-      ),
-      GoRoute(
-        path: '/$addCard',
-        name: addCard,
-        builder: (context, state) => const AddCard(),
       ),
       GoRoute(
         path: '/$pin',
@@ -149,10 +141,9 @@ class RouteHelper {
       GoRoute(
         path: "/$otp",
         name: otp,
-        builder: (context, state) =>
-            OtpPage(
-              phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
-            ),
+        builder: (context, state) => OtpPage(
+          phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
+        ),
       ),
     ],
   );
