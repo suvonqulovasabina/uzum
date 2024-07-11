@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class LightColors {
   const LightColors ._();
   static const primary = Color(0xff7000ff);
@@ -9,4 +11,5 @@ class LightColors {
   static const surfaceContainer = Color(0xFFEEEEEE);
   static const secondaryText = Color(0xFF616161);
   final grey = Colors.grey;
+  static const allBackWhite = Color(0xFFF5F6F8);
 }

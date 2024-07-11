@@ -101,15 +101,15 @@ getMehotsIcon(String my_home, IconData icon,{double? iconSize,Color? iconColor})
       Text(
         my_home,
         style: TextStyle(
-          color: iconColor ?? Colors.grey,
+          color: Colors.grey,
           fontWeight: FontWeight.bold,
-          fontSize: iconSize ?? 15,
+          fontSize: 14,
         ),
       ),
       Icon(
         icon,
-        size: 20,
-        color: Colors.grey,
+        size:  iconSize ?? 20,
+        color: iconColor ?? Colors.grey,
       ),
     ],
   );
