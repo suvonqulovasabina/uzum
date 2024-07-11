@@ -1,16 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:uzum/cons/app_icons.dart';
-import 'package:uzum/ui/home/dataa.dart';
+import 'package:uzum/ui/main/dataa.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 import 'package:uzum/utils/string_extension.dart';
 
 import '../../cons/cons.dart';
 
-class HomePage extends StatelessWidget {
-  final TextEditingController _phoneController = TextEditingController();
-
-  HomePage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +31,7 @@ class HomePage extends StatelessWidget {
               getSearchBox(),
               const SizedBox(height: 15),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -80,41 +77,52 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 15,),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Container(
                                 padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(18),
-                                    color: Colors.white),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(18), color: Colors.white),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-
                                     RichText(
-                                        text: const TextSpan(
-                                            text: "Cashback uo to",
-                                            style: TextStyle(color: Colors.black),
-                                            children: [
-                                          TextSpan(
-                                            text: " 20%",
+                                        text: const TextSpan(text: "Cashback uo to", style: TextStyle(color: Colors.black), children: [
+                                      TextSpan(
+                                        text: " 20%",
+                                        style: TextStyle(
+                                          color: Colors.green,
+                                        ),
+                                      )
+                                    ])),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    RichText(
+                                        text: TextSpan(
+                                            text: 1.toString(),
                                             style: TextStyle(
-                                              color: Colors.green,
+                                              color: Colors.black,
+                                              fontSize: 16,
                                             ),
-                                          )
-                                        ])),
-                                    SizedBox(height: 20,),
-                                    RichText(text: TextSpan(text: 1.toString(),style: TextStyle(color: Colors.black,fontSize: 16,),children: [TextSpan(text: "UZS")])),
-                                    Text("Earned",style: TextStyle(color: Colors.grey,),)
-
+                                            children: [TextSpan(text: "UZS")])),
+                                    Text(
+                                      "Earned",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                      ),
+                                    )
                                   ],
                                 ),
                               )
                             ],
                           ),
-                          const SizedBox(height: 15,),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -133,7 +141,6 @@ class HomePage extends StatelessWidget {
                               ),
                             ],
                           ),
-
                           getMyFast(),
                           const SizedBox(
                             height: 15,
@@ -207,8 +214,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          getFast(
-                              Icons.add_circle_outline, Colors.grey, "add"),
+                          getFast(Icons.add_circle_outline, Colors.grey, "add"),
                           Expanded(child: Container()),
                         ],
                       ),
@@ -297,10 +303,7 @@ Widget getPhonePayment() {
                   decoration: InputDecoration(
                     hintText: "(00) 000 - 00 - 00",
                     hintStyle: TextStyle(color: Color(0xFF9DA3A7)),
-                    border: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(Cons.textBorderRadius),
-                        borderSide: BorderSide.none),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(Cons.textBorderRadius), borderSide: BorderSide.none),
                     suffixIcon: IconButton(
                       onPressed: () {
                         ;
@@ -372,8 +375,7 @@ getSearchBox() {
   );
 }
 
-Widget getLocalPayments(
-    {required String name, required String url, String? sale}) {
+Widget getLocalPayments({required String name, required String url, String? sale}) {
   return Stack(
     children: [
       Container(
@@ -537,5 +539,4 @@ Widget getMyFast() {
   );
 }
 
-final String biznesFabrika =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-q0hkRR_zoT_xmNvodO59uw2lfu7bHgA5AQ&s";
+final String biznesFabrika = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-q0hkRR_zoT_xmNvodO59uw2lfu7bHgA5AQ&s";

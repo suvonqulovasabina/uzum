@@ -29,8 +29,9 @@ class BottomNavigation extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.white,
             onTap: (index) {
+              print('index: $index state.index ${state.index}');
               context.read<BottomNavigationBloc>().add(ChangeNavigation(index: index));
-              _goBranch(state.index);
+              _goBranch(index);
             },
             iconSize: 30,
             selectedItemColor: LightColors.primary,
@@ -38,14 +39,16 @@ class BottomNavigation extends StatelessWidget {
             currentIndex: state.index,
             items: [
               BottomNavigationBarItem(
-                  icon: Image.asset(Assets.uzumLogoIcon, height: 24, width: 24, color: state.index == 0 ? LightColors.primary : Colors.grey),
-                  label: "Main"),
+                icon: Image.asset(Assets.uzumLogoIcon, height: 24, width: 24, color: state.index == 0 ? LightColors.primary : Colors.grey),
+                label: "Main",
+              ),
               const BottomNavigationBarItem(icon: Icon(Icons.arrow_circle_right_outlined), label: "Transfer"),
               const BottomNavigationBarItem(icon: Icon(Icons.payment), label: "Payment"),
               const BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: "Support"),
               BottomNavigationBarItem(
-                  icon: Image.asset(Assets.icMenuAll, height: 48, width: 48, color: state.index == 4 ? LightColors.primary : Colors.grey),
-                  label: "Menu"),
+                icon: Image.asset(Assets.icMenuAll, height: 48, width: 48, color: state.index == 4 ? LightColors.primary : Colors.grey),
+                label: "Menu",
+              ),
             ],
           ),
         );
@@ -54,9 +57,9 @@ class BottomNavigation extends StatelessWidget {
   }
 
   void _goBranch(int index) {
+    print('go branch index: $index');
     navigationShell.goBranch(
-      index,
-      initialLocation: index == navigationShell.currentIndex,
+      index, //initialLocation: index == navigationShell.currentIndex,
     );
   }
 }
