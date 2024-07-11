@@ -1,5 +1,9 @@
 {
   "test": "bu test",
-  "sms_is_not_responding": "SMS is not responding"
+  "sms_is_not_coming": "SMS is not responding",
+  "payment_screen_title": "To'lov",
+  "saved_payments": "Saqlangan to'lovlar",
+  "all":"Hammasi",
+  "local_payments":"Mahalliy to'lovlar",
 
 }
