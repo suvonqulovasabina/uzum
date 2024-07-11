@@ -1,17 +1,15 @@
 {
   "test": "bu test",
   "sms_is_not_responding": "SMS is not responding",
-  "continue":"Keyingisi",
+  "continue": "Keyingisi",
+  "sms_is_not_coming": "SMS is not responding",
   "payment_screen_title": "To'lov",
   "saved_payments": "Saqlangan to'lovlar",
-  "all":"Hammasi",
-  "local_payments":"Mahalliy to'lovlar",
+  "all": "Hammasi",
   "my_home": "Mening uyim",
   "add": "Qo'shish",
-  "payment_by_category" : "Kategoriya bo'yicha to'lov",
-
-
-  "sms_is_not_coming": "Sms kelmadi",
+  "payment_by_category": "Kategoriya bo'yicha to'lov",
+  "local_payments": "Mahalliy to'lovlar",
   "customer_support": "Qo'llab-quvvatlash",
   "online": "Onlayn",
   "support_default": "Assalomu alaykum! Uzum Bank qo'llab-quvvatlash markazi. Bizga istalgan xabarni yozing, biz javob berishdan mamnun bo'lamiz.",

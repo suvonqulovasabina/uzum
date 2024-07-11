@@ -1,104 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:uzum/ui/payment/payment_screens.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:uzum/ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
+import 'package:uzum/ui/theme/light_colors.dart';
 
-import '../home/home_page.dart';
+import '../../utils/constants/assets.dart';
 
-import '../menu/menu.dart';
-import '../payment/payment.dart';
-import '../support/support_screen.dart';
-import '../transfers/transfers.dart';
+class BottomNavigation extends StatelessWidget {
+  const BottomNavigation({super.key, required this.navigationShell});
 
-class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
-
-  @override
-  State<BottomNavigation> createState() => _BottomState();
-}
-
-class _BottomState extends State<BottomNavigation> {
-  int _selectedIndex = 0;
-
-  List<Widget> bottom = [
-     HomePage(),
-    MenuPage(),
-     PaymentScreens(),
-    const SupportScreen(),
-     HomePage()
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final StatefulNavigationShell navigationShell;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: bottom,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        height: 74,
-        color: Colors.white,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 5,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildBottomNavigationItem(Icons.home, 'Home', 0),
-              _buildBottomNavigationItem(Icons.search, 'Search', 1),
-              _buildBottomNavigationItem(
-                Icons.shopping_basket_rounded,
-                'Basket',
-                2,
-                badgeContent: '3',
-              ),
-              _buildBottomNavigationItem(Icons.book_online_rounded, 'Box', 3),
-              _buildBottomNavigationItem(Icons.person, 'Profile', 4),
+    return BlocConsumer<BottomNavigationBloc, BottomNavigationState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          body: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: navigationShell,
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            onTap: (index) {
+              context.read<BottomNavigationBloc>().add(ChangeNavigation(index: index));
+              _goBranch(state.index);
+            },
+            iconSize: 30,
+            selectedItemColor: LightColors.primary,
+            unselectedItemColor: Colors.grey,
+            currentIndex: state.index,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Image.asset(Assets.uzumLogoIcon, height: 24, width: 24, color: state.index == 0 ? LightColors.primary : Colors.grey),
+                  label: "Main"),
+              const BottomNavigationBarItem(icon: Icon(Icons.arrow_circle_right_outlined), label: "Transfer"),
+              const BottomNavigationBarItem(icon: Icon(Icons.payment), label: "Payment"),
+              const BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: "Support"),
+              BottomNavigationBarItem(
+                  icon: Image.asset(Assets.icMenuAll, height: 48, width: 48, color: state.index == 4 ? LightColors.primary : Colors.grey),
+                  label: "Menu"),
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildBottomNavigationItem(
-    IconData icon,
-    String label,
-    int index, {
-    String? badgeContent,
-  }) {
-    Widget iconWidget = Icon(
-      icon,
-      size: 32,
-      color: _selectedIndex == index ? Colors.deepPurple : Colors.grey,
-    );
-
-    return GestureDetector(
-      onTap: () {
-        _onItemTapped(index);
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          iconWidget,
-          Text(
-            label,
-            style: TextStyle(
-              color: _selectedIndex == index ? Colors.deepPurple : Colors.grey,
-            ),
-          ),
-        ],
-      ),
+  void _goBranch(int index) {
+    navigationShell.goBranch(
+      index,
+      initialLocation: index == navigationShell.currentIndex,
     );
   }
 }

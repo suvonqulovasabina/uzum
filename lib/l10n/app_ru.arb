@@ -2,6 +2,7 @@
   "test": "это тест",
   "sms_is_not_responding": "SMS is not responding",
   "continue":"Следующий",
+  "sms_is_not_coming": "SMS is not responding",
   "payment_screen_title": "Оплата",
   "saved_payments": "Сохраненные платежи",
   "all":"Все",
@@ -10,12 +11,8 @@
   "my_home": "Мой дом",
   "add": "Добавить",
   "payment_by_category": "Оплата по категориям",
-
-
-  "sms_is_not_coming": "Смс не пришёл",
   "customer_support": "Customer Support RU",
   "online": "Онлайн",
   "support_default": "Ру: Hello! This is a support service of Uzum Bank. Write us any questions and we will be happy to help you.",
   "write_a_message": "Write a message . . ."
-
 }
