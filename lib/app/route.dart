@@ -5,6 +5,7 @@ import 'package:uzum/ui/otp/otp.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
 import 'package:uzum/ui/splash/splash.dart';
+import 'package:uzum/ui/support/support.dart';
 
 import '../ui/add_card/add_card/add_card.dart';
 import '../ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
@@ -12,7 +13,7 @@ import '../ui/bottom_navigation/bottom_navigation.dart';
 import '../ui/main/main_screen.dart';
 import '../ui/menu/menu.dart';
 import '../ui/payment/payment_screens.dart';
-import '../ui/support/support_screen.dart';
+import '../ui/support/bloc/support_bloc.dart';
 import '../ui/transfers/transfers.dart';
 
 class RouteHelper {
@@ -104,7 +105,10 @@ class RouteHelper {
                   path: '/support',
                   name: 'Support',
                   builder: (BuildContext context, GoRouterState state) {
-                    return const SupportScreen();
+                    return BlocProvider(
+                      create: (context) => SupportBloc(),
+                      child: const SupportPage(),
+                    );
                   },
                   routes: [],
                 ),
@@ -142,9 +146,10 @@ class RouteHelper {
       GoRoute(
         path: "/$otp",
         name: otp,
-        builder: (context, state) => OtpPage(
-          phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
-        ),
+        builder: (context, state) =>
+            OtpPage(
+              phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
+            ),
       ),
     ],
   );
