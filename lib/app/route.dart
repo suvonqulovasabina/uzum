@@ -15,6 +15,8 @@ import 'package:uzum/ui/support/bloc/support_bloc.dart';
 import 'package:uzum/ui/support/support.dart';
 import 'package:uzum/ui/transfers/transfers.dart';
 
+import '../ui/scan_card/scan_card.dart';
+
 class RouteHelper {
   RouteHelper._();
 
@@ -148,6 +150,11 @@ class RouteHelper {
         builder: (context, state) => OtpPage(
           phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
         ),
+      ),
+      GoRoute(
+        path: "/scanCard",
+        name: 'scanCard',
+        builder: (context, state) => const ScanCard(),
       ),
     ],
   );

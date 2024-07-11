@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:uzum/app/app.dart';
+
+import 'app/app.dart';
 
 void main() {
   runApp(const UzumBankApp());
+  // runApp(const CardItem());
 }

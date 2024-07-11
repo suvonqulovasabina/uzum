@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uzum/cons/app_icons.dart';
 import 'package:uzum/ui/main/dataa.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
@@ -220,7 +221,10 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  getRefresh(),
+                  Positioned(
+                    top: -13,
+                    child: getRefresh(context),
+                  )
                 ],
               )
             ],
@@ -247,25 +251,28 @@ class MainPage extends StatelessWidget {
   }
 }
 
-Widget getRefresh() {
-  return Positioned(
-      top: -13,
+Widget getRefresh(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      context.goNamed('addCard');
+    },
+    child: Container(
+      height: 50,
+      width: 50,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
       child: Container(
-        height: 50,
-        width: 50,
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-        child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: LightColors.primary,
-            ),
-            child: Icon(
-              Icons.refresh,
-              color: Colors.white,
-              size: 18,
-            )),
-      ));
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: LightColors.primary,
+          ),
+          child: Icon(
+            Icons.refresh,
+            color: Colors.white,
+            size: 18,
+          )),
+    ),
+  );
 }
 
 Widget getPhonePayment() {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:uzum/ui/add_card/add_card/util/add_button.dart';
-import 'package:uzum/ui/add_card/add_card/util/add_card_text_fild.dart';
-import 'package:uzum/ui/add_card/add_card/util/card_text_fild.dart';
-import 'package:uzum/ui/add_card/add_card/util/item_image.dart';
+import 'package:go_router/go_router.dart';
+
+import 'components/components.dart';
 
 class AddCard extends StatefulWidget {
   const AddCard({super.key});
@@ -12,42 +11,56 @@ class AddCard extends StatefulWidget {
 }
 
 class _AddCardState extends State<AddCard> {
+  final cardNumberController = TextEditingController();
+  final expController = TextEditingController();
+
+  @override
+  void dispose() {
+    cardNumberController.dispose();
+    expController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          children: [
-            Icon(Icons.arrow_back_rounded),
-            SizedBox(
-              width: 8,
-            ),
-            Text(
-              "Yangi karta",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
+        title: const Text("Yangi karta", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          AddCardTextField(),
-          SizedBox(
-            height: 16,
+          AddCardTextField(
+            controller: cardNumberController,
+            onPressed: () async {
+              List<String>? val = await context.pushNamed('scanCard');
+
+              if (!context.mounted) return;
+
+              cardNumberController.text = val?[0] ?? '';
+              expController.text = val?[1] ?? '';
+
+              print('hello : ${cardNumberController.text}');
+            },
           ),
-          AddCardTextFild(text: "",image: "",),
-          SizedBox(height: 32,),
-          ItemImage(text: "Siz Uzum Bank "
-              "akauntingizdagi kabi SMS -"
-              " xabar raqamiulanan"
-              " kartalarni qoshishingiz mumkun",
-          image: "assets/images/card.png",),
-          SizedBox(height: 32,),
-          ItemImage(text: "Istalgan bankning Uzcard va Humo.Kapitalbankdan Visa va Mastercard",
-            image: "assets/images/card.png",),
-          Spacer(),
-          AddButton()
+          const SizedBox(height: 16),
+          ExpDateField(expController: expController, image: ""),
+          const SizedBox(height: 32),
+          const ItemImage(
+              text: "Siz Uzum Bank "
+                  "akauntingizdagi kabi SMS -"
+                  " xabar raqamiulanan"
+                  " kartalarni qoshishingiz mumkun",
+              image: "assets/images/card.png"),
+          const SizedBox(
+            height: 32,
+          ),
+          const ItemImage(
+            text: "Istalgan bankning Uzcard va Humo.Kapitalbankdan Visa va Mastercard",
+            image: "assets/images/card.png",
+          ),
+          const Spacer(),
+          const AddButton()
         ],
       ),
     );
