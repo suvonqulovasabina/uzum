@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uzum/ui/theme/components.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
@@ -29,7 +28,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
             }
           });
         },
-        child: BoldText(
+        child: SemiBoldText(
           text: number.toString(),
           fontSize: 24,
         )
@@ -62,7 +61,7 @@ class _PinCodeWidgetState extends State<PinCodeWidget> {
           children: [
             Spacer(),
             const Center(
-              child: BoldText(
+              child: SemiBoldText(
                 text: "Hello!",
                 fontSize: 24,
               )

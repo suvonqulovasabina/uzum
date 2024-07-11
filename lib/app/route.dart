@@ -3,6 +3,7 @@ import 'package:uzum/ui/otp/otp.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
 import 'package:uzum/ui/splash/splash.dart';
+import 'package:uzum/ui/transfer/transfer_screen.dart';
 
 class RouteHelper {
   RouteHelper._();
@@ -13,6 +14,7 @@ class RouteHelper {
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';
+  static const String transfer = 'transfer';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -39,6 +41,11 @@ class RouteHelper {
           phoneNumber: state.uri.queryParameters['id1'] ?? '+9989--------',
         ),
       ),
+      GoRoute(
+        path: "/$transfer",
+        name: transfer,
+        builder: (context, state) => const TransferScreen(),
+      )
     ],
   );
 }
