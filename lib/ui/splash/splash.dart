@@ -25,6 +25,7 @@ class SplashScreenState extends State<SplashScreen> {
       context.pushReplacementNamed(RouteHelper.bottomNavigation);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
