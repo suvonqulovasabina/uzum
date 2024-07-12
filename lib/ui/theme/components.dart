@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:popover/popover.dart';
 import 'package:uzum/ui/theme/my_images.dart';
+import 'package:uzum/ui/transfer/card_transfer/ui/card_transfer_screen.dart';
 
 import 'light_colors.dart';
 
@@ -215,7 +216,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextField(
         controller: _controller,
         onChanged: (text) {
-          setState(() {}); // Trigger rebuild to update suffix icon
+          Navigator.push(context, MaterialPageRoute(builder:
+              (context)=>const
+              CardTransferScreen()));
+
         },
         keyboardType: TextInputType.number,
         inputFormatters: [
