@@ -27,6 +27,21 @@ class TextStylesAll {
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle textStyle15black = TextStyle(
+    color: Color(0xFF0E0D0D),
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle textStyle18gray = TextStyle(
+    color: Color(0x99F4F4F4),
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle textStyle18black = TextStyle(
+    color: Color(0xFF000000),
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle textStyle26 = TextStyle(
     color: Color(0xFFFFFFFF),
     fontSize: 26,
