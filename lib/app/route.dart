@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uzum/ui/add_card/add_card/add_card.dart';
-import 'package:uzum/ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
-import 'package:uzum/ui/bottom_navigation/bottom_navigation.dart';
-import 'package:uzum/ui/main/home_page.dart';
-import 'package:uzum/ui/menu/menu.dart';
-import 'package:uzum/ui/otp/otp.dart';
-import 'package:uzum/ui/payment/payment_screens.dart';
-import 'package:uzum/ui/pin/pin_code_widget.dart';
-import 'package:uzum/ui/register/register.dart';
-import 'package:uzum/ui/splash/splash.dart';
+import '../ui/add_card/add_card/add_card.dart';
+import '../ui/bottom_navigation/bottom_navigation.dart';
+import '../ui/main/home_page.dart';
+import '../ui/menu/menu.dart';
+import '../ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
+import '../ui/otp/otp.dart';
+import '../ui/payment/payment_screens.dart';
+import '../ui/pin/pin_code_widget.dart';
+import '../ui/register/register.dart';
+import '../ui/splash/splash.dart';
 
 import '../ui/scan_card/scan_card.dart';
 import '../ui/support/bloc/support_bloc.dart';
@@ -28,6 +28,7 @@ class RouteHelper {
   static final _shellNavigatorMenu = GlobalKey<NavigatorState>(debugLabel: 'shellMenu');
 
   static const String _initR = '/$splash';
+
 
   static const String pin = 'pin';
   static const String bottomNavigation = 'bottomNavigation';

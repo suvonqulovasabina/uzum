@@ -95,47 +95,53 @@ Widget getLocalPayments(
   );
 }
 getMehotsIcon(String my_home, IconData icon,{double? iconSize,Color? iconColor}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        my_home,
-        style: TextStyle(
-          color: Colors.grey,
-          fontWeight: FontWeight.bold,
-          fontSize: 14,
+  return Padding(
+    padding: const EdgeInsets.all(12.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          my_home,
+          style: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
         ),
-      ),
-      Icon(
-        icon,
-        size:  iconSize ?? 20,
-        color: iconColor ?? Colors.grey,
-      ),
-    ],
+        Icon(
+          icon,
+          size:  iconSize ?? 20,
+          color: iconColor ?? Colors.grey,
+        ),
+      ],
+    ),
   );
 }
 
 Widget getMehotsName(String saved_payments, String all) {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        saved_payments,
-        style: TextStyle(
-          color: Colors.grey,
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
+  return Padding(
+    padding: const EdgeInsets.all(12.0),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          saved_payments,
+          style: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
         ),
-      ),
-      Text(
-        all,
-        style: TextStyle(
-          color: LightColors.primary,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
+        Text(
+          all,
+          style: TextStyle(
+            color: LightColors.primary,
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
+          ),
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }
