@@ -11,11 +11,11 @@ import 'package:uzum/ui/payment/payment_screens.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
 import 'package:uzum/ui/register/register.dart';
 import 'package:uzum/ui/splash/splash.dart';
-import 'package:uzum/ui/support/bloc/support_bloc.dart';
-import 'package:uzum/ui/support/support.dart';
-import 'package:uzum/ui/transfers/transfers.dart';
 
 import '../ui/scan_card/scan_card.dart';
+import '../ui/support/bloc/support_bloc.dart';
+import '../ui/support/support.dart';
+import '../ui/transfer/transfer_screen.dart';
 
 class RouteHelper {
   RouteHelper._();
@@ -34,6 +34,7 @@ class RouteHelper {
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';
+  static const String transfer = 'transfer';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -80,7 +81,7 @@ class RouteHelper {
                   path: '/transfers',
                   name: 'Transfers',
                   builder: (BuildContext context, GoRouterState state) {
-                    return const Transfers();
+                    return const TransferScreen();
                   },
                   routes: [],
                 ),

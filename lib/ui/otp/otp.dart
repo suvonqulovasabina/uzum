@@ -36,7 +36,7 @@ class OtpPageState extends State<OtpPage> {
           BoldText(
             text: AppLocalizations.of(context)!.sms_is_not_coming,
             color: LightColors.primary,
-            onClick: () {},
+            // onClick: () {},
           ),
           const SizedBox(width: 8),
         ],
