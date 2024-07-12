@@ -15,6 +15,8 @@ class Assets {
 
   static const uzumLogoIcon = '$_images/uzum_logo_icon.png';
   static const icMenuAll = '$_images/ic_menu_all.png';
+  static const test = '$_images/test.png';
+
 
   ///
 // SVGS

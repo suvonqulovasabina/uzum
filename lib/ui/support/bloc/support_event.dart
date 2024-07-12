@@ -7,3 +7,9 @@ final class SupportTextChanged extends SupportEvent {
 
   SupportTextChanged(this.message);
 }
+
+final class SendMessage extends SupportEvent {
+  final String message;
+
+  SendMessage({required this.message});
+}
