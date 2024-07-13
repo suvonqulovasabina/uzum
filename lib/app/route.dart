@@ -31,6 +31,7 @@ class RouteHelper {
 
   static const String pin = 'pin';
   static const String bottomNavigation = 'bottomNavigation';
+  static const String celectionCard = 'selection';
   static const String register = 'register';
   static const String splash = 'splash';
   static const String otp = 'otp';

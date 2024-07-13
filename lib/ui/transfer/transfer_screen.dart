@@ -7,6 +7,7 @@ import 'package:uzum/ui/theme/my_images.dart';
 import 'package:uzum/ui/transfer/transfer_components.dart';
 
 import '../theme/components.dart';
+import 'card_transfer/ui/card_transfer_screen.dart';
 
 class TransferScreen extends StatefulWidget {
   const TransferScreen({super.key});
@@ -39,7 +40,9 @@ class _TransferScreenState extends State<TransferScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomTextField(
                 onTapSuffix: () {
-                  print('Suffix icon clicked');
+                  Navigator.push(context, MaterialPageRoute(builder:
+                      (context)=>const
+                  CardTransferScreen()));
                 },
               ),
             ),

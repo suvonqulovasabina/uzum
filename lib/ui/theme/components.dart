@@ -208,18 +208,25 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   final TextEditingController _controller = TextEditingController();
+  final _focusNode = FocusNode();
+
 
   @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(widget.onTapSuffix);
+  }
+  @override
   Widget build(BuildContext context) {
+
+
     return SizedBox(
       height: 52,
       child: TextField(
         controller: _controller,
+        focusNode: _focusNode ,
         onChanged: (text) {
-          Navigator.push(context, MaterialPageRoute(builder:
-              (context)=>const
-              CardTransferScreen()));
-
+          _focusNode.addListener(widget.onTapSuffix);
         },
         keyboardType: TextInputType.number,
         inputFormatters: [
@@ -228,7 +235,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           CardNumberInputFormatter(),
         ],
         autofocus: false,
-        cursorColor: LightColors.primary,
+        cursorColor: LightColors.white2,
         cursorHeight: 20,
         decoration: InputDecoration(
           hintText: "Karta raqam yoki nomini kiriting",
