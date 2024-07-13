@@ -4,8 +4,117 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:popover/popover.dart';
 import 'package:uzum/ui/theme/my_images.dart';
+import 'package:uzum/utils/constants/assets.dart';
+import 'package:uzum/utils/string_extension.dart';
 
 import 'light_colors.dart';
+
+class MyCardItem extends StatefulWidget {
+  final String ownerName;
+  final double amount;
+  final String date;
+  final String cardNumber;
+
+  const MyCardItem({super.key, required this.ownerName, required this.amount, required this.date, required this.cardNumber});
+
+  @override
+  State<MyCardItem> createState() => _MyCardItemState();
+}
+
+class _MyCardItemState extends State<MyCardItem> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/bg_loan_apelsin.png'),
+              fit: BoxFit.cover
+            )
+          ),
+          child: Column(
+            children: [
+              const Spacer(),
+              cardInformation()
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  
+  Widget cardInformation() {
+    return Container(
+      height: 120,
+      width: MediaQuery.of(context).size.width,
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(.3),
+        borderRadius: BorderRadius.circular(14)
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Spacer(),
+              SvgPicture.asset(
+                "assets/images/ic_bank_uzcard_x16.svg",
+                width: 20,
+                height: 20,
+              ),
+            ],
+          ),
+
+
+          Text(
+            "${'${widget.amount}'.toValue()} UZS",
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.normal,
+                fontFamily: UzumFontFamily.semiBold),
+          ),
+
+          const SizedBox(height: 8,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MediumText(
+                text: widget.cardNumber.hideCardNumbers(),
+                color: Colors.white,
+                fontSize: 14,
+                height: 1,
+              ),
+
+              MediumText(
+                text: widget.date,
+                fontSize: 14,
+                color: Colors.white,
+              )
+            ],
+          ),
+
+          const Spacer(),
+
+          MediumText(
+            text: widget.ownerName,
+            fontSize: 14,
+            color: Colors.white,
+            height: 1,
+          )
+        ],
+      ),
+    );
+  }
+}
 
 
 class PopupButton extends StatelessWidget {
