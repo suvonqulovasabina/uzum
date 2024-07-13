@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 import 'app/app.dart';
+import 'data/source/local/hive/hive_preference.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HivePreference.init();
   runApp(const UzumBankApp());
   // runApp(const CardItem());
 }
