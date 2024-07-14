@@ -37,3 +37,23 @@ class UzumFontFamily {
   static const String medium = "Medium";
   static const String numberMedium = "NumberMedium";
 }
+
+class ProviderIcons{
+  ProviderIcons ._();
+  static const _service = 'assets/service';
+  static const _web = '.webp';
+
+
+
+  static const String uzmobile = "$_service/6_v3$_web";
+  static const String istv_internet = "$_service/4667_v2$_web";
+  static const String sky_line = "$_service/10_v2$_web";
+  static const String sarkor_telecom = "$_service/15_v1$_web";
+  static const String nano_telecom = "$_service/3032_v2$_web";
+  static const String sarkor_tv = "$_service/7027_v1$_web";
+  static const String all_net = "$_service/12557_v1$_web";
+  static const String rypto_wifi = "$_service/13404_v2$_web";
+  static const String optikom = "$_service/19068_v1$_web";
+  static const String comnet = "$_service/30457_v3$_web";
+
+}
