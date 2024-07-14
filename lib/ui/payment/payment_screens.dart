@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:uzum/app/route.dart';
 import 'package:uzum/cons/cons.dart';
 import 'package:uzum/ui/payment/payment_dats.dart';
 import 'package:uzum/ui/payment/widget.dart';
@@ -128,7 +129,7 @@ class PaymentScreens extends StatelessWidget {
                   itemBuilder: (c, i) {
 
                     return getAllServise(datas[i],(s){
-                      c.pushNamed(),
+                      c.pushNamed(RouteHelper.payment_item,extra: s);
                     });
                   },
                   itemCount: datas.length),

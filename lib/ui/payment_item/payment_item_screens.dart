@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:uzum/cons/cons.dart';
 import 'package:uzum/ui/payment_item/payment_item_data.dart';
 import 'package:uzum/ui/payment_item/widgets.dart';
+import 'package:uzum/ui/theme/light_colors.dart';
 
 class PaymentItemScreens extends StatelessWidget {
   final String title;
@@ -12,8 +13,11 @@ class PaymentItemScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: LightColors.allBackWhite,
+
       appBar: AppBar(
-        title: Text(title,style: TextStylesAll.textStyle26,),
+        forceMaterialTransparency: true,
+        title: Text(title,style: TextStylesAll.textStyle26Black,textAlign: TextAlign.start,),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Colors.black,size: 24,))
         ],
