@@ -57,3 +57,26 @@ class ProviderIcons{
   static const String comnet = "$_service/30457_v3$_web";
 
 }
+
+class GamesIcons{
+  GamesIcons ._();
+  static const _service = 'assets/service';
+  static const _web = '.webp';
+
+
+
+  static const String pubg_mobile = "$_service/28257_v1$_web";
+  static const String pubgMobile_newState = "$_service/28308_v2$_web";
+  static const String freeFire = "$_service/28258_v1$_web";
+  static const String mobileLegends = "$_service/28258_v1$_web";
+  static const String fortnite = "$_service/28261_v1$_web";
+  static const String minecraft = "$_service/28250_v1$_web";
+  static const String steam = "$_service/28320_v1$_web";
+  static const String warFace = "$_service/28320_v1$_web";
+
+
+
+
+
+
+}
