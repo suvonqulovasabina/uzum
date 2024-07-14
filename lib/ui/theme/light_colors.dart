@@ -14,4 +14,9 @@ class LightColors {
   static const allBackWhite = Color(0xFFF5F6F8);
   static const primaryFixedDim = Color(0xFFD8C9EC);
   static const black = Color(0xFF000000);
+  static const gradient1 = Color(0xff6517ba);
+  static const gradient2 = Color(0xff8838fa);
+  static const white23 = Color(0xfff3f4f6);
+  static const white3 = Color(0xfff5f6f8);
 }
+

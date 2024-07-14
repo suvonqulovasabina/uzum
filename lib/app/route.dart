@@ -16,6 +16,14 @@ import '../ui/scan_card/scan_card.dart';
 import '../ui/support/bloc/support_bloc.dart';
 import '../ui/support/support.dart';
 import '../ui/transfer/transfer_screen.dart';
+import 'package:uzum/ui/bottom_navigation/bottom_navigation.dart';
+import 'package:uzum/ui/menu/menu_screen.dart';
+import 'package:uzum/ui/monitoring/monitoring_screen.dart';
+import 'package:uzum/ui/otp/otp.dart';
+import 'package:uzum/ui/pin/pin_code_widget.dart';
+import 'package:uzum/ui/register/register.dart';
+import 'package:uzum/ui/splash/splash.dart';
+import 'package:uzum/ui/transfer/transfer_screen.dart';
 
 class RouteHelper {
   RouteHelper._();
@@ -37,6 +45,8 @@ class RouteHelper {
   static const String splash = 'splash';
   static const String otp = 'otp';
   static const String transfer = 'transfer';
+  static const String history = 'history';
+  static const String menu = 'menu';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -125,7 +135,7 @@ class RouteHelper {
                   path: '/menu',
                   name: 'Menu',
                   builder: (BuildContext context, GoRouterState state) {
-                    return const MenuPage();
+                    return const MenuScreen();
                   },
                   routes: [],
                 ),
@@ -158,6 +168,19 @@ class RouteHelper {
         path: "/scanCard",
         name: 'scanCard',
         builder: (context, state) => const ScanCard(),
+        // path: "/$transfer",
+        // name: transfer,
+        // builder: (context, state) => const TransferScreen(),
+      ),
+      GoRoute(
+        path: "/$history",
+        name: history,
+        builder: (context, state) => const MonitoringScreen(),
+      ),
+      GoRoute(
+        path: "/$menu",
+        name: menu,
+        builder: (context, state) => const MenuScreen(),
       ),
     ],
   );

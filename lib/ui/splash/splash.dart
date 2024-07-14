@@ -23,8 +23,10 @@ class SplashScreenState extends State<SplashScreen> {
   void _navigateToNextScreen() {
     if (mounted) {
       context.pushReplacement('/main');
+      // context.pushNamed(RouteHelper.menu);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
