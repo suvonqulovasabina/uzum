@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'package:uzum/app/route.dart';
 import 'package:uzum/cons/cons.dart';
 import 'package:uzum/ui/payment/payment_dats.dart';
 import 'package:uzum/ui/payment/widget.dart';
@@ -126,7 +128,9 @@ class PaymentScreens extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (c, i) {
 
-                    return getAllServise(datas[i]);
+                    return getAllServise(datas[i],(s){
+                      c.pushNamed(RouteHelper.payment_item,extra: s);
+                    });
                   },
                   itemCount: datas.length),
             )
@@ -137,40 +141,45 @@ class PaymentScreens extends StatelessWidget {
   }
 }
 
-Widget getAllServise(PaymentData data) {
+Widget getAllServise(PaymentData data, Function(String) click ) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 10),
     color: Colors.white,
-    child: Row(
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12), color: LightColors.surfaceContainer),
-          child: Icon(
-            data.icon,
-            size: 22,
+    child: GestureDetector(
+      onTap: (){
+        click(data.name);
+      },
+      child: Row(
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12), color: LightColors.surfaceContainer),
+            child: Icon(
+              data.icon,
+              size: 22,
+            ),
           ),
-        ),
-        Text(
-          data.name,
-          style: const TextStyle(color: Colors.black, fontSize: 18),
-        ),
-        const Spacer(),
-        Text(
-          data.count.toString(),
-          textAlign: TextAlign.end,
+          Text(
+            data.name,
+            style: const TextStyle(color: Colors.black, fontSize: 18),
+          ),
+          const Spacer(),
+          Text(
+            data.count.toString(),
+            textAlign: TextAlign.end,
 
-          style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),
-        ),
-        SizedBox(width: 6,),
-        Icon(
-          Icons.arrow_forward_ios,
-          size: 16,
-          color: Colors.grey,
-        )
-      ],
+            style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),
+          ),
+          SizedBox(width: 6,),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 16,
+            color: Colors.grey,
+          )
+        ],
+      ),
     ),
   );
 }

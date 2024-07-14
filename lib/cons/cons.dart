@@ -37,4 +37,9 @@ class TextStylesAll {
     fontSize: 26,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle textStyle26Black = TextStyle(
+    color: Color(0xFF000000),
+    fontSize: 20,
+    fontWeight: FontWeight.normal,
+  );
 }
