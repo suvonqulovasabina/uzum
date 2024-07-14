@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
-class HivePreference {
+  class HivePreference {
   static const String boxName = 'token';
 
   static  init()  async {
