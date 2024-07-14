@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:uzum/ui/bottom_navigation/bottom_navigation.dart';
+import 'package:uzum/ui/menu/menu_screen.dart';
 import 'package:uzum/ui/monitoring/monitoring_screen.dart';
 import 'package:uzum/ui/otp/otp.dart';
 import 'package:uzum/ui/pin/pin_code_widget.dart';
@@ -19,6 +20,7 @@ class RouteHelper {
   static const String otp = 'otp';
   static const String transfer = 'transfer';
   static const String history = 'history';
+  static const String menu = 'menu';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -59,6 +61,11 @@ class RouteHelper {
         path: "/$history",
         name: history,
         builder: (context, state) => const MonitoringScreen(),
+      ),
+      GoRoute(
+        path: "/$menu",
+        name: menu,
+        builder: (context, state) => const MenuScreen(),
       ),
     ],
   );

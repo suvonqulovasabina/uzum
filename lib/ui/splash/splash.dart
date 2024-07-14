@@ -22,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   void _navigateToNextScreen() {
     if (mounted) {
-      context.pushNamed(RouteHelper.history);
+      context.pushNamed(RouteHelper.menu);
     }
   }
   @override

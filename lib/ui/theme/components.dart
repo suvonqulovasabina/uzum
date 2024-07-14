@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:popover/popover.dart';
 import 'package:uzum/ui/theme/my_images.dart';
@@ -8,6 +9,62 @@ import 'package:uzum/utils/constants/assets.dart';
 import 'package:uzum/utils/string_extension.dart';
 
 import 'light_colors.dart';
+
+class CustomImage extends StatefulWidget {
+  final String path;
+  final double width;
+  final double height;
+  Color color;
+
+  CustomImage(
+      {super.key,
+      required this.path,
+      required this.width,
+      required this.height,
+        this.color = Colors.black,
+      });
+
+  @override
+  State<CustomImage> createState() => _CustomImageState();
+}
+
+class _CustomImageState extends State<CustomImage> {
+  @override
+  Widget build(BuildContext context) {
+    return widget.path.endsWith('.png')
+        ? pngImage(widget.path, widget.height, widget.width, widget.color)
+        : svgImg(widget.path, widget.height, widget.width, widget.color);
+  }
+
+  Widget svgImg(
+    String img,
+    double height,
+    double width,
+    Color color,
+  ) {
+    return SvgPicture.asset(
+      img,
+      height: height,
+      width: width,
+      color: color,
+    );
+  }
+
+  Widget pngImage(
+      String img,
+      double height,
+      double width,
+      Color color,
+  ) {
+    return Image.asset(
+      img,
+      height: height,
+      width: width,
+      color: color,
+    );
+  }
+}
+
 
 class MyCardItem extends StatefulWidget {
   final String ownerName;
@@ -249,6 +306,41 @@ class BoldText extends StatelessWidget {
 }
 
 
+class BoldTextPaynet extends StatelessWidget {
+  final String text;
+  final double fontSize;
+  final Color color;
+  final double height;
+  final int maxLines;
+  final TextAlign textAlign;
+
+  const BoldTextPaynet(
+      {super.key,
+        required this.text,
+        this.fontSize = 14,
+        this.color = Colors.black,
+        this.height = .1,
+        this.maxLines = 1,
+        this.textAlign = TextAlign.start
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines: maxLines,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        height: height,
+        fontFamily: "PaynetBold",
+      ),
+    );
+  }
+}
 
 
 class MediumText extends StatelessWidget {
@@ -282,6 +374,78 @@ class MediumText extends StatelessWidget {
         fontSize: fontSize,
         height: height,
         fontFamily: "Medium",
+      ),
+    );
+  }
+}
+
+class MediumTextPaynet extends StatelessWidget {
+  final String text;
+  final double fontSize;
+  final Color color;
+  final double height;
+  final int maxLines;
+  final TextAlign textAlign;
+
+  const MediumTextPaynet(
+      {super.key,
+        required this.text,
+        this.fontSize = 14,
+        this.color = Colors.black,
+        this.height = .1,
+        this.maxLines = 1,
+        this.textAlign = TextAlign.start
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines: maxLines,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        height: height,
+        fontFamily: "RobotoMedium",
+      ),
+    );
+  }
+}
+
+class NormalTextRoboto extends StatelessWidget {
+  final String text;
+  final double fontSize;
+  final Color color;
+  final double height;
+  final int maxLines;
+  final TextAlign textAlign;
+
+  const NormalTextRoboto(
+      {super.key,
+        required this.text,
+        this.fontSize = 14,
+        this.color = Colors.black,
+        this.height = .1,
+        this.maxLines = 1,
+        this.textAlign = TextAlign.start
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: textAlign,
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines: maxLines,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        height: height,
+        fontFamily: "RobotoNormal",
       ),
     );
   }
