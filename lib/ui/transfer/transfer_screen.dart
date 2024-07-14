@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 import 'package:uzum/ui/theme/my_images.dart';
 import 'package:uzum/ui/transfer/transfer_components.dart';
@@ -56,7 +57,7 @@ class _TransferScreenState extends State<TransferScreen> {
               "Hisob raqami bo'yicha",
               "O'zbekiston bo'ylab",
               () {
-
+                context.goNamed("byAccount");
               }
             ),
             transferCategoryItem(

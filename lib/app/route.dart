@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uzum/ui/payment_item/payment_item_screens.dart';
+import 'package:uzum/ui/transfer/by_account_number/by_account_number.dart';
 import '../ui/add_card/add_card/add_card.dart';
 import '../ui/bottom_navigation/bottom_navigation.dart';
 import '../ui/main/home_page.dart';
@@ -39,6 +40,7 @@ class RouteHelper {
   static const String otp = 'otp';
   static const String transfer = 'transfer';
   static const String payment_item = '/payment_item';
+  static const String byAccount = 'byAccount';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -87,8 +89,21 @@ class RouteHelper {
                   builder: (BuildContext context, GoRouterState state) {
                     return const TransferScreen();
                   },
-                  routes: [],
+                  routes: [
+                    GoRoute(
+                      path: 'byAccount',
+                      name: 'byAccount',
+                      pageBuilder: (BuildContext context, GoRouterState state) {
+                        return CustomTransitionPage<void>(
+                          key: state.pageKey,
+                          child: const ByAccountNumber(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+                        );
+                      },
+                    )
+                  ],
                 ),
+
               ],
             ),
             StatefulShellBranch(

@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uzum/ui/add_card/add_card/components/add_button.dart';
 import 'package:uzum/ui/transfer/card_selection/card_selection_screen.dart';
 
 import '../../../theme/components.dart';
@@ -14,6 +13,7 @@ class CardTransferScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Row(
           children: [

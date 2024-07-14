@@ -27,7 +27,7 @@ class _CardContainerState extends State<CardContainer> {
          margin: const EdgeInsets.all(16),
          child:Column(
            children: [
-             Spacer(),
+             const Spacer(),
              Center(
 
                child: Container(
@@ -43,16 +43,35 @@ class _CardContainerState extends State<CardContainer> {
                ),
              )
              ,
-             Spacer()
+             const Spacer()
            ],
          ),
 
        ),),
-       Expanded(flex: 1,child: Container(),),
+       Expanded(flex: 2,child: Container(
+         child: const Column(
+           mainAxisAlignment: MainAxisAlignment.start,
+           children: [
+            SizedBox(height: 36,),
+             Text(
+               "Sabina Suvonqulova", style: TextStyle(
+               fontWeight: FontWeight.bold,
+               fontSize: 18,
+               height: 0
+             ),),
+             SizedBox(height: 8,),
+             Padding(
+               padding: EdgeInsets.only(right: 56),
+               child: Text("986011034412"),
+             ),
+             Spacer()
+           ],
+         ),
+         
+       ),),
        Expanded(flex: 1,child: Container(
          child: const Center(
            child: Icon(Icons.keyboard_arrow_down),
-
          ),
        ),),
      ],
