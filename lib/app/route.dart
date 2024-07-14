@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:uzum/ui/payment_item/payment_item_screens.dart';
 import '../ui/add_card/add_card/add_card.dart';
 import '../ui/bottom_navigation/bottom_navigation.dart';
 import '../ui/main/home_page.dart';
@@ -47,6 +48,7 @@ class RouteHelper {
   static const String transfer = 'transfer';
   static const String history = 'history';
   static const String menu = 'menu';
+  static const String payment_item = '/payment_item';
 
   static final router = GoRouter(
     initialLocation: _initR,
@@ -135,7 +137,7 @@ class RouteHelper {
                   path: '/menu',
                   name: 'Menu',
                   builder: (BuildContext context, GoRouterState state) {
-                    return const MenuScreen();
+                    return const MenuPage();
                   },
                   routes: [],
                 ),
@@ -182,6 +184,11 @@ class RouteHelper {
         name: menu,
         builder: (context, state) => const MenuScreen(),
       ),
+      GoRoute(
+          path: payment_item,
+          name: payment_item,
+          builder: (context,state) => PaymentItemScreens(title: state.extra as String)
+      )
     ],
   );
 }
