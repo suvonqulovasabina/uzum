@@ -2,18 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uzum/ui/payment_item/payment_item_screens.dart';
+import 'package:uzum/ui/register/cubit/register_cubit.dart';
+
 import '../ui/add_card/add_card/add_card.dart';
+import '../ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
 import '../ui/bottom_navigation/bottom_navigation.dart';
 import '../ui/main/home_page.dart';
 import '../ui/menu/menu.dart';
-import '../ui/bottom_navigation/bloc/bottom_navigation_bloc.dart';
 import '../ui/otp/otp.dart';
 import '../ui/payment/payment_screens.dart';
 import '../ui/pin/pin_code_widget.dart';
 import '../ui/register/register.dart';
-import '../ui/splash/splash.dart';
-
 import '../ui/scan_card/scan_card.dart';
+import '../ui/splash/splash.dart';
 import '../ui/support/bloc/support_bloc.dart';
 import '../ui/support/support.dart';
 import '../ui/transfer/transfer_screen.dart';
@@ -29,7 +30,6 @@ class RouteHelper {
   static final _shellNavigatorMenu = GlobalKey<NavigatorState>(debugLabel: 'shellMenu');
 
   static const String _initR = '/$splash';
-
 
   static const String pin = 'pin';
   static const String bottomNavigation = 'bottomNavigation';
@@ -147,7 +147,10 @@ class RouteHelper {
       GoRoute(
         path: '/$register',
         name: register,
-        builder: (context, state) => const Register(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => RegisterCubit(),
+          child: const Register(),
+        ),
       ),
       GoRoute(
         path: "/$otp",
@@ -161,11 +164,7 @@ class RouteHelper {
         name: 'scanCard',
         builder: (context, state) => const ScanCard(),
       ),
-      GoRoute(
-          path: payment_item,
-          name: payment_item,
-          builder: (context,state) => PaymentItemScreens(title: state.extra as String)
-      )
+      GoRoute(path: payment_item, name: payment_item, builder: (context, state) => PaymentItemScreens(title: state.extra as String))
     ],
   );
 }
