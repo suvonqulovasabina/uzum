@@ -159,6 +159,7 @@ Widget getAllServise(PaymentData data, Function(String) click ) {
             child: Icon(
               data.icon,
               size: 22,
+              color: Colors.black,
             ),
           ),
           Text(
