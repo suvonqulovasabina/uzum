@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:uzum/ui/payment_item/payment_item_data.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 
+import '../../presentation/bloc/payment_item/payment_item_data.dart';
+
 
 Widget getPaymentItem(PaymentItemData data) {
   return Container(

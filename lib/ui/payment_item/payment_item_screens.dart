@@ -6,6 +6,8 @@ import 'package:uzum/ui/payment_item/payment_item_data.dart';
 import 'package:uzum/ui/payment_item/widgets.dart';
 import 'package:uzum/ui/theme/light_colors.dart';
 
+import '../../presentation/bloc/payment_item/payment_item_data.dart';
+
 class PaymentItemScreens extends StatelessWidget {
   final String title;
    const PaymentItemScreens({required this.title,super.key});
