@@ -19,4 +19,20 @@ extension StringExtension on String {
     }
     return ls.join();
   }
+
+
+  String hideCardNumbers() {
+    var cardNumbers = this;
+    var newStr = "";
+    if (cardNumbers.length == 16) {
+      newStr += cardNumbers.substring(0, 4);
+      newStr += " ";
+      newStr += cardNumbers.substring(4, 6);
+      newStr += "** ";
+      newStr += "**** ";
+      newStr += cardNumbers.substring(12);
+    }
+    return newStr;
+  }
+
 }

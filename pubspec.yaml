@@ -137,6 +137,18 @@ flutter:
 #      fonts:
 #        - asset: assets/fonts/roboto_medium_numbers.ttf
 
+    - family: RobotoNormal
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+
+    - family: RobotoMedium
+      fonts:
+        - asset: assets/fonts/pnfont_medium.ttf
+
+    - family: PaynetBold
+      fonts:
+        - asset: assets/fonts/pnfont_semibold.ttf
+
   # fonts:
   #   - family: Schyler
   #     fonts:
