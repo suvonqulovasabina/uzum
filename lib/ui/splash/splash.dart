@@ -26,7 +26,6 @@ class SplashScreenState extends State<SplashScreen> {
       // context.pushNamed(RouteHelper.menu);
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

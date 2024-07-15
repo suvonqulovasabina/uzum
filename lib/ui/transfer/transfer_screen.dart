@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uzum/ui/theme/light_colors.dart';
 import 'package:uzum/ui/theme/my_images.dart';
 import 'package:uzum/ui/transfer/transfer_components.dart';
 
 import '../theme/components.dart';
+import 'by_requisites/bottom_sheet_dialog.dart';
 import 'card_transfer/ui/card_transfer_screen.dart';
 
 class TransferScreen extends StatefulWidget {
@@ -22,76 +22,64 @@ class _TransferScreenState extends State<TransferScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarColor: Colors.white, // Status bar color
-        statusBarIconBrightness: Brightness.dark
-    ));
+        statusBarIconBrightness: Brightness.dark));
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 68,),
+            const SizedBox(
+              height: 68,
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: transferTitle(),
             ),
-
-            const SizedBox(height: 50,),
-
+            const SizedBox(
+              height: 50,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomTextField(
                 onTapSuffix: () {
-                  Navigator.push(context, MaterialPageRoute(builder:
-                      (context)=>const
-                  CardTransferScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CardTransferScreen()));
                 },
               ),
             ),
-
-            const SizedBox(height: 15,),
-
+            const SizedBox(
+              height: 15,
+            ),
             transferItemList(),
-            const SizedBox(height: 28,),
-            transferCategoryItem(
-              Icons.account_balance_wallet_outlined,
-              "Hisob raqami bo'yicha",
-              "O'zbekiston bo'ylab",
-              () {
-                context.goNamed("byAccount");
-              }
+            const SizedBox(
+              height: 28,
             ),
             transferCategoryItem(
-                Icons.account_balance_outlined,
+                Icons.account_balance_wallet_outlined,
                 "Hisob raqami bo'yicha",
-                "O'tkazma yoki to'lov",
-                    () {
+                "O'zbekiston bo'ylab", () {
+              context.goNamed("byAccount");
+            }),
+            transferCategoryItem(Icons.account_balance_outlined,
+                "Hisob raqami bo'yicha", "O'tkazma yoki to'lov", () {
+              context.goNamed("byRequisites");
+            }),
+            transferCategoryItem(Icons.currency_exchange,
+                "Valyuta ayriboshlash", "Sotib olish va sotish", () {
+                  bottomSheetDialog(context);
+                }),
 
-                }
-            ),
-            transferCategoryItem(
-                Icons.currency_exchange,
-                "Valyuta ayriboshlash",
-                "Sotib olish va sotish",
-                    () {
-
-                }
-            ),
-            transferCategoryItem(
-                CupertinoIcons.arrow_down_left,
+            transferCategoryItem(CupertinoIcons.arrow_down_left,
                 "Rossiyadan",
-                "Tez va komissiyasiz",
-                    () {
+                "Tez va komissiyasiz", () {
 
-                }
-            ),
-            transferCategoryItem(
-                CupertinoIcons.arrow_up_right,
-                "Rossiyaga",
-                "Identifikatsiyadan o'ting",
-                    () {
+                }),
+            transferCategoryItem(CupertinoIcons.arrow_up_right, "Rossiyaga",
+                "Identifikatsiyadan o'ting", () {
 
-                }
-            ),
+                }),
           ],
         ),
       ),
@@ -99,10 +87,10 @@ class _TransferScreenState extends State<TransferScreen> {
   }
 
   Widget transferCategoryItem(
-      IconData icon,
-      String sectionName,
-      String sectionDescription,
-      VoidCallback onTap,
+    IconData icon,
+    String sectionName,
+    String sectionDescription,
+    VoidCallback onTap,
   ) {
     return InkWell(
       onTap: onTap,
@@ -112,15 +100,17 @@ class _TransferScreenState extends State<TransferScreen> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(width: 15,),
+            const SizedBox(
+              width: 15,
+            ),
             Icon(
               icon,
               color: Colors.black,
               size: 26,
             ),
-
-            const SizedBox(width: 15,),
-
+            const SizedBox(
+              width: 15,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +121,6 @@ class _TransferScreenState extends State<TransferScreen> {
                   fontSize: 16,
                   height: 1,
                 ),
-
                 MediumText(
                   text: sectionDescription,
                   fontSize: 14,
@@ -140,16 +129,15 @@ class _TransferScreenState extends State<TransferScreen> {
                 ),
               ],
             ),
-
             const Spacer(),
-
             Icon(
               Icons.keyboard_arrow_right,
               color: Colors.grey.withOpacity(.6),
               size: 24,
             ),
-
-            const SizedBox(width: 15,)
+            const SizedBox(
+              width: 15,
+            )
           ],
         ),
       ),
@@ -159,24 +147,22 @@ class _TransferScreenState extends State<TransferScreen> {
   Widget transferItemList() {
     return Row(
       children: [
-        const SizedBox(width: 15,),
+        const SizedBox(
+          width: 15,
+        ),
         Flexible(
-          child: SizedBox(
-            height: 105,
-            child: ListView.builder(
+            child: SizedBox(
+          height: 105,
+          child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 20,
               itemBuilder: (context, index) {
                 return transferItem();
-              }
-            ),
-          )
-        ),
+              }),
+        )),
       ],
     );
   }
-
-
 
   Widget transferItem() {
     return Container(
@@ -184,10 +170,9 @@ class _TransferScreenState extends State<TransferScreen> {
       margin: const EdgeInsets.only(right: 12),
       padding: const EdgeInsets.only(top: 8, left: 6, bottom: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.grey.withOpacity(.2), width: 1)
-      ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: Colors.grey.withOpacity(.2), width: 1)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -199,22 +184,19 @@ class _TransferScreenState extends State<TransferScreen> {
                 width: 20,
                 height: 20,
               ),
-
               popupMenu()
             ],
           ),
-
           const Spacer(),
-
           MediumText(
             text: 'Gaybullayev Abdulvohid',
             height: 1,
             maxLines: 2,
             fontSize: 12,
           ),
-
-          const SizedBox(height: 4,),
-
+          const SizedBox(
+            height: 4,
+          ),
           MediumText(
             text: '2536',
             height: 1,
@@ -232,12 +214,10 @@ class _TransferScreenState extends State<TransferScreen> {
       color: Colors.white,
       initialValue: "",
       onSelected: (item) {
-        setState(() {
-
-        });
+        setState(() {});
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-         const PopupMenuItem(
+        const PopupMenuItem(
           value: "SampleItem.itemOne",
           height: 36,
           child: Row(
@@ -247,9 +227,9 @@ class _TransferScreenState extends State<TransferScreen> {
                 size: 24,
                 color: Colors.red,
               ),
-
-              SizedBox(width: 12,),
-
+              SizedBox(
+                width: 12,
+              ),
               MediumText(
                 text: 'Ro\'yxatdan olib tashlash',
                 height: 1,
